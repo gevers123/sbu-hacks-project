@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sbu_hacks_project/screens/home.dart';
+import 'package:sbu_hacks_project/screens/loading.dart';
 import 'package:sbu_hacks_project/widgets/asteroid.dart';
 import 'dart:async';
 
@@ -15,18 +16,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late Future<Asteroid> futureAsteroid;
-
-  @override
-  void initState() {
-    super.initState();
-    futureAsteroid = fetchAsteroid();
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(futureAsteroid),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Loading(),
+        '/home': (context) => HomeScreen(),
+      },
     );
   }
 }

@@ -3,22 +3,16 @@ import 'package:sbu_hacks_project/widgets/asteroid.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
-  Future<Asteroid> futureAsteroid;
-  HomeScreen(Future<Asteroid> futureAsteroid) {
-    late futureAsteroid = this.futureAsteroid;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.purple[50],
         appBar: AppBar(
-          title: Text('Home'),
+          title: Text('Asteready!'),
           backgroundColor: Colors.purple[400],
         ),
         body: Center(
           child: FutureBuilder<Asteroid>(
-            future: futureAsteroid,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return Text(snapshot.data!.name);
